@@ -1,0 +1,90 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+define(f(x), -2+8*x-2*x^2);
+define(f\'(x), diff(f(x),x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d(
+f(x),
+[x,-1,5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d(
+[f(x),f\'(x)],
+[x,-1,5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d(
+[f(x),f\'(x)],
+[x,-1,5],
+[xlabel,"Variable x"],
+[ylabel,"Variable f(x)"],
+[color, black, red],
+[legend, "f(x)","f\'(x)"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Busqueda de una raíz para una función polinómica
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):= 3*x^3 - 2*x^2 - 8*x + 2$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x)],
+[x,-5,5],
+[box, false],
+[xlabel,"var x"],
+[ylabel,"var f(x)"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+r: find_root ( f(x), x, -5, 5);
+f(r);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):= 2 - 2*x - exp(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x)],
+[x,0,5],
+[xlabel,"var x"],
+[ylabel,"var y"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+expr1: 2 - 2*x;
+expr2: exp(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([expr1,expr2],
+[x,0,2],
+[xlabel,"x"],
+[ylabel,"f(x)"],
+[legend,"expr1","expr2"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+r: find_root ( expr1 = expr2, x, 0, 2, abserr=1/100000);
+f(r);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load (newton1)$
+newton( f(x), x, -1, 1/100000);
+newton( f(x), x,  1, 1/100000);
+newton( f(x), x, 10, 1/100000);
+/* [wxMaxima: input   end   ] */
+
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

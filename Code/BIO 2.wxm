@@ -1,0 +1,38 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=2-3*x+x^2$
+functions;
+fundef(f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+'diff(f(x),x,1);
+define(f\'(x), diff(f(x),x,1));
+functions;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+r:solve(f(x))$
+r;
+r[1];
+f(r[1]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+allroots(f(x));
+allroots(f\'(x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define(f\'\'(x), diff(f(x),x,2));
+allroots(f\'\'(x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x)],[x,-1,3],[ylabel,"f(x)"]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

@@ -1,0 +1,68 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+ratprint:false$
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=3*x^2 − 2* x − 20$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(x)], [x,-6,6], [ylabel, "f(x)"])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define(h(x), integrate(f(x),x));
+find_root(h(x)-h(0)=4,x,-10,10),numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+h(x)-h(0)=4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+cub: x^3;
+cuad: x^2+20*x+4;
+wxplot2d([cub, cuad], [x,-10,10], [legend,"cub","cuad"])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define(h\'(x), diff(h(x),x,1));
+i:solve(h\'(x))$
+i,numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define( R(x), x^3-x^2-20*x-4)$
+R(0);
+R
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+R(x):= x^3 - (x^2+20*x+4);
+R(0);
+R(1);
+R(2);
+R(3);
+R(4);
+R(5);
+R(6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+i:find_root(h(t)-h(0)=12000,t,4,6),numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+R(i);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
