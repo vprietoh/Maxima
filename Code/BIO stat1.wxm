@@ -1,0 +1,116 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+load (descriptive);
+numer: true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ingreso de datos
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+peso: 
+[378,391,389,398,401,
+ 396,384,410,399,419,
+ 423,402,405,399,420,
+ 402,397,400,410,389]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+pleche:
+[12.3,13.1,12.0,11.7,
+ 10.8,13.4,12.6,16.3,
+ 10.8,14.3,22.5,18.7,
+ 12.3, 9.8,15.3,11.6,
+ 10.7,15.8,17.0,13.2]$
+npleche: length(pleche);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+npeso  : length(peso);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Indicadores de posición
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+min  : smin(peso);
+max  : smax(peso);
+media: mean(peso);
+Me   : median(peso);
+Q1   : quantile(peso,.25);
+Q2   : quantile(peso,.50);
+Q3   : quantile(peso,.75);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Indicadores de variabilidad
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+rango: range(peso);
+IQ   : qrange(peso);
+S2   : var(peso);
+S    : std(peso);
+cvar : cv(peso);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Coeficiente de sesgo (de Pearson)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sesgo: pearson_skewness(peso);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Tabla de frecuencias
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+continuous_freq (peso, 6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gráfico de barras
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+barsplot(peso,
+        title        = "Proporcion de animales segun Peso vivo",
+        xlabel       = "Peso Vivo (en kg)",
+        ylabel       = "Proporcion de animales",
+        frequency    = relative,
+        box_width    = 1,
+        fill_density = 1/2)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Histograma
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+histogram(peso,
+           nclasses     = 6,
+           title        = "Proporcion de animales segun Peso vivo",
+           xlabel       = "Peso Vivo (en kg)",
+           ylabel       = "Proporcion de animales",
+           frequency    = relative,
+           fill_color   = grey,
+           fill_density = 0.6)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+boxplot(peso,
+        box_width  = 0.2,
+        title      = "Windspeed in knots",
+        xlabel     = "Stations",
+        color      = red,
+        line_width = 2)$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

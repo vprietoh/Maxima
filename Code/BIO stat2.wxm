@@ -1,0 +1,142 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+load (descriptive);
+numer: true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ingreso de datos
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+agv:
+[239,212,249,227,218,310,281,330,226,233,
+223,161,195,233,249,284,245,174,154,256,
+196,299,210,301,199,258,205,195,227,244,
+355,234,195,179,359,282,265,286,286,176,
+195,163,297]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+nagv  : length(agv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Indicadores de posición
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+min  : smin(agv);
+max  : smax(agv);
+media: mean(agv);
+Me   : median(agv);
+Q1   : quantile(agv,.25);
+Q2   : quantile(agv,.50);
+Q3   : quantile(agv,.75);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Indicadores de variabilidad
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+rango: range(agv);
+IQ   : qrange(agv);
+S2   : var(agv);
+S    : std(agv);
+cvar : cv(agv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Coeficiente de sesgo (de Pearson)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sesgo: pearson_skewness(agv);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Tabla de frecuencias
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+continuous_freq (agv, 5);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Histograma
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+wxhistogram(agv,
+           nclasses     = 5,
+           title        = "Proporcion de animales segun nivel de AGV en sangre",
+           xlabel       = "AGV (en mg/ml sangre)",
+           ylabel       = "Proporcion de animales",
+           frequency    = relative,
+           fill_color   = grey,
+           fill_density = 0.6)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Ingreso de datos agrupados
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+agv.grp:append(
+    makelist(174.5,10), 
+    makelist(215.5,13),
+    makelist(256.5, 8),
+    makelist(297.5, 9),
+    makelist(338.5, 3))$
+length(agv.grp);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+media: mean(agv.grp);
+S2   : var(agv.grp);
+S    : std(agv.grp);
+cvar : cv(agv.grp);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Otro ejemplo
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+tam:append(
+    makelist( 2.5, 5), 
+    makelist(10.0, 12),
+    makelist(20.0, 23),
+    makelist(37.5, 35),
+    makelist(75.0, 25))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+length(tam);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+media: mean(tam);
+S2   : var(tam);
+S    : std(tam);
+cvar : cv(tam);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+histogram(tam,
+           nclasses     = (0,5,15,25,50,100),
+           xtics        = (0,5,15,25,50,100),
+           htics        = ["0-5","5-15","15-25","25-50","50-100"],
+           title        = "",
+           xlabel       = "",
+           ylabel       = "",
+           frequency    = relative,
+           fill_color   = grey,
+           fill_density = 0.6)$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
