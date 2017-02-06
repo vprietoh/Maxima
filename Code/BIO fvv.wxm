@@ -1,0 +1,115 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+define( f(x,y), 5+2*x-3*y^2+2*x*y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x,0);
+f(0,y);
+f(0,0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(f(x,y),x);
+diff(f(x,y),y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+J:jacobian([f(x,y)],[x,y])$
+J[1,1];
+J[1,2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(f(x,y),x,2);
+diff(f(x,y),y,2);
+diff(f(x,y),x,1,y,1);
+diff(f(x,y),y,1,x,1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+hessian(f(x,y),[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(
+f(x,y), 
+[x,-100,100], 
+[y,-100,100],
+[xlabel,"x"],
+[ylabel,"y"],
+[zlabel, "f(x,y)"],
+[legend, " Gráfico en 3D de f(x,y) "])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Definimos la función f(x,y)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+define( f(x,y), 700 + 6*x + 60*y - 4.5*x^2 - 13.5*y^2 + x^3 + y^3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hallamos derivadas parciales 
+primeras y segundas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(f(x,y),x);
+diff(f(x,y),y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+jacobian([f(x,y)],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(f(x,y),x,2);
+diff(f(x,y),y,2);
+diff(f(x,y),x,1,y,1);
+diff(f(x,y),y,1,x,1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Búsqueda de ptos. estacionarios
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+jacobian([f(x,y)],[x,y]);
+algsys([j[1,1],j[1,2]],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+j:jacobian([f(x,y)],[x,y]);
+pcrit:algsys([j[1,1],j[1,2]],[x,y])$
+[pcrit[1]];
+ev(f(x,y),[pcrit[1]]);
+[pcrit[2]];
+ev(f(x,y),[pcrit[2]]);
+[pcrit[3]];
+ev(f(x,y),[pcrit[3]]);
+[pcrit[4]];
+ev(f(x,y),[pcrit[4]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define(h(x,y),hessian(f(x,y),[x,y]));
+h(1,4);
+h(1,5);
+h(2,4);
+h(2,5);
+determinant(h(1,4));
+determinant(h(1,5));
+determinant(h(2,4));
+determinant(h(2,5));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(f(x,y), [x,-100,100], [y,-100,100])$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

@@ -1,0 +1,46 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+load (lsquares)$
+M: matrix(
+ [4,35], 
+ [6,85], 
+ [10,85], 
+ [11,90], 
+ [15,110], 
+ [17,165]
+);
+sol:lsquares_estimates (
+M, 
+[x,y], 
+y=a*x+b, 
+[a,b]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+X: matrix(
+ [4], 
+ [6], 
+ [10], 
+ [11], 
+ [15], 
+ [17]
+)$
+Y: matrix(
+ [35], 
+ [85], 
+ [85], 
+ [90], 
+ [110], 
+ [165]
+)$
+X0:matrix([1],[1],[1],[1],[1],[1])$
+M: addcol(X0,X,Y)$
+M;
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

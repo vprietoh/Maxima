@@ -1,0 +1,56 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 16.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+ratprint:false$
+load(draw)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: input   start ] */
+f(t):=4500*(1-0.8*exp(-0.2*t))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([f(t)], [t,0,24], [ylabel, "f(t)"])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+define(h(t), integrate(f(t),t));
+find_root(h(t)-h(0)=12000,t,0,1),numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+h(t)-h(0)=12000;
+expand(h(t)-h(0)=12000);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lin: 20/3 - t;
+exp: 4*exp(-0.2*t);
+wxplot2d([lin, exp], [t,0,20/3], [legend,"lin","exp"])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+R(t):= 4*exp(-0.2*t) - (20/3 - t);
+R(15/3);
+R(15.5/3);
+R(15.6/3);
+R(15.7/3);
+R(15.8/3);
+R(15.9/3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+i:find_root(h(t)-h(0)=12000,t,4,6),numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+R(i);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
